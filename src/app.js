@@ -52,7 +52,6 @@ App = {
 	loadContract: async () => {
 	  // Create a JavaScript version of the smart contract
 	  const todoList = await $.getJSON('TodoList.json')
-	  console.log("todoList", todoList)
 	  App.contracts.TodoList = await TruffleContract(todoList)
 	  App.contracts.TodoList.setProvider(App.web3Provider)
   
@@ -81,7 +80,6 @@ App = {
 
 	renderTasks: async () => {
 		// Load the total task count from the blockchain
-		console.log("App.todoList", App.todoList)
 		const taskCount = await App.todoList.taskCount()
 		const $taskTemplate = $('.taskTemplate')
 
